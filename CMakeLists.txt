@@ -9,6 +9,7 @@ option(BUILD_DEPENDENCIES "Whether or not to build depending libraries from sour
 option(USE_OPENSSL "Use openssl as crypto library" ON)
 option(USE_MBEDTLS "Use openssl as crypto library" OFF)
 option(BUILD_OPENSSL "Whether or not to build OpenSSL library" OFF)
+option(BUILD_WEBSOCKETS "Whether or not to build websockets library" OFF)
 option(BUILD_COMMON_LWS "Whether or not to build ProducerC libwebsockets common library" OFF)
 option(BUILD_COMMON_CURL "Whether or not to build ProducerC curl common library" ON)
 option(BUILD_OPENSSL_PLATFORM "If buildng OpenSSL what is the target platform" OFF)
@@ -86,7 +87,7 @@ if(BUILD_DEPENDENCIES)
     message(FATAL_ERROR "No crypto library selected.")
   endif()
 
-  if (BUILD_COMMON_LWS)
+  if (BUILD_WEBSOCKETS)
     set(BUILD_ARGS  -DBUILD_STATIC=${BUILD_STATIC}
                     -DOPENSSL_DIR=${OPEN_SRC_INSTALL_PREFIX})
     build_dependency(websockets ${BUILD_ARGS})
