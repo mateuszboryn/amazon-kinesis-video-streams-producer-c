@@ -100,6 +100,7 @@ if(BUILD_DEPENDENCIES)
     build_dependency(curl ${BUILD_ARGS})
   endif()
 
+  set(BUILD_ARGS -DBUILD_STATIC=${BUILD_STATIC})
   build_dependency(jsmn)
 
   if(BUILD_TEST)
